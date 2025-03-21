@@ -15,7 +15,7 @@ from datetime import timedelta
 from collections import defaultdict
 # Load environment variables
 load_dotenv()
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://userk1:yourpassword@cluster0.mongodb.net/lab_attendance?retryWrites=true&w=majority")
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://userk1:9HxA5EuxjWAny7sO@cluster0.p1ywiyx.mongodb.net/lab_attendance?retryWrites=true&w=majority")
 
 # MongoDB connection
 client = MongoClient(MONGO_URI)
