@@ -13,6 +13,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import timedelta
 from collections import defaultdict
+import pytz
+IST = pytz.timezone("Asia/Kolkata")
+
 # Load environment variables
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://userk1:9HxA5EuxjWAny7sO@cluster0.p1ywiyx.mongodb.net/lab_attendance?retryWrites=true&w=majority")
@@ -56,7 +59,8 @@ def update_check_in_check_out(action, student_id):
             else:
                 attendance_collection.insert_one({
                     "student_id": student_id,
-                    "check_in": datetime.now(),
+                    "check_in": datetime.now(IST)
+,
                     "check_out": None
                 })
                 st.success(f"{student_id}, checked in successfully!")
@@ -68,7 +72,8 @@ def update_check_in_check_out(action, student_id):
             else:
                 attendance_collection.update_one(
                     {"student_id": student_id, "check_out": None},
-                    {"$set": {"check_out": datetime.now()}}
+                    {"$set": {"check_out": datetime.now(IST)
+}}
                 )
                 st.success(f"{student_id}, checked out successfully!")
 
