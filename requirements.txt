@@ -1,0 +1,11 @@
+opencv-python-headless
+streamlit
+pymongo
+numpy
+pandas
+matplotlib
+seaborn
+python-dotenv
+Pillow
+pyzbar
+werkzeug
